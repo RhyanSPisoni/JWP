@@ -1,3 +1,9 @@
 body{
     margin: 0;
+    background-color: peru;
+}
+
+#listaFilmes{
+    color: gainsboro;
+    font-size: larger;
 }
