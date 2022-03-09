@@ -22,9 +22,9 @@ var filmes =
     '"LinkImagem": "https://upload.wikimedia.org/wikipedia/pt/thumb/a/a1/Cavaleiro_Negro_por_Robert_Atkins.jpg/260px-Cavaleiro_Negro_por_Robert_Atkins.jpg"' +
     '}' +
     ']' +
-    '},'+
+    '},' +
     '{' +
-    '"NomeFilme": "Eternos",' +
+    '"NomeFilme": "Eternosssssss",' +
     '"Sinopse": "Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.",' +
     '"Imagens": [' +
     '{' +
@@ -65,11 +65,11 @@ obj.forEach(e => {
 obj.forEach(e => {
     let nomeFilme = document.createElement('h1');
     document.getElementById('filme').appendChild(nomeFilme);
-    nomeFilme.innerHTML += e.NomeFilme;
+    nomeFilme.innerHTML += '|' + e.NomeFilme + '|';
 
     let sinopse = document.createElement('h3');
     document.getElementById('filme').appendChild(sinopse);
-    sinopse.innerHTML += e.Sinopse
+    sinopse.innerHTML += '- ' + e.Sinopse
 
     let imagem = document.createElement('h3');
     document.getElementById('filme').appendChild(sinopse);
