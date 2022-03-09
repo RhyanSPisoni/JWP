@@ -61,12 +61,8 @@ obj.forEach(e => {
     .then( data => {        
         return data.blob();
     }).then( res => {
-        console.log(res);
         const imgURL = URL.createObjectURL(res)
-        console.log(imgURL)
-
         const img = `<img src="${imgURL}"/>`;
-
         document.querySelector('#filme').innerHTML = img;
     })
 });
