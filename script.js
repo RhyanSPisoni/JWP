@@ -2,14 +2,7 @@ var filmes =
     '[{' +
     '"NomeFilme": "Eternos",' +
     '"Sinopse": "Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.",' +
-    '"Imagens": [' +
-    '{' +
-    '"Link": "https://observatoriodocinema.uol.com.br/wp-content/uploads/2021/11/eternos-capa-2.jpg"' +
-    '},' +
-    '{' +
-    '"Link": "https://lumiere-a.akamaihd.net/v1/images/eternals_ka_pay1_brpo_92b0a4dd.jpeg"' +
-    '}' +
-    '],' +
+    '"Imagens": "https://observatoriodocinema.uol.com.br/wp-content/uploads/2021/11/eternos-capa-2.jpg",' +
     '"Personsagem": [' +
     '{' +
     '"Nome": "Ikaris",' +
@@ -26,14 +19,7 @@ var filmes =
     '{' +
     '"NomeFilme": "Eternosssssss",' +
     '"Sinopse": "Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.",' +
-    '"Imagens": [' +
-    '{' +
-    '"Link": "https://observatoriodocinema.uol.com.br/wp-content/uploads/2021/11/eternos-capa-2.jpg"' +
-    '},' +
-    '{' +
-    '"Link": "https://lumiere-a.akamaihd.net/v1/images/eternals_ka_pay1_brpo_92b0a4dd.jpeg"' +
-    '}' +
-    '],' +
+    '"Imagens": "https://observatoriodocinema.uol.com.br/wp-content/uploads/2021/11/eternos-capa-2.jpg",' +
     '"Personsagem": [' +
     '{' +
     '"Nome": "Ikaris",' +
@@ -71,7 +57,16 @@ obj.forEach(e => {
     document.getElementById('filme').appendChild(sinopse);
     sinopse.innerHTML += '- ' + e.Sinopse
 
-    let imagem = document.createElement('h3');
-    document.getElementById('filme').appendChild(sinopse);
-    sinopse.innerHTML += e.Sinopse
+    fetch('https://observatoriodocinema.uol.com.br/wp-content/uploads/2021/11/eternos-capa-2.jpg')
+    .then( data => {        
+        return data.blob();
+    }).then( res => {
+        console.log(res);
+        const imgURL = URL.createObjectURL(res)
+        console.log(imgURL)
+
+        const img = `<img src="${imgURL}"/>`;
+
+        document.querySelector('#filme').innerHTML = img;
+    })
 });
