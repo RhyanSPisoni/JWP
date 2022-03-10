@@ -1,3 +1,9 @@
+html, body{
+    padding: 0;;
+    margin: 0;
+    background-color: peru;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 header{
     text-justify: auto;
     font-size: medium;
@@ -9,27 +15,31 @@ header{
     text-decoration-line: underline;
 }
 
-body{
-    padding: 0;;
-    margin: 0;
-    background-color: peru;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
 h1{
     color: brown;
 }
+
 #listaFilmes{
     color: gainsboro;
     font-size: larger;
 }
 
 #backInfoFilme{
-    padding-right: 50%;
-    padding-left: 3%;
+    padding-left: 2%;
+    padding-right: 1%;
 }
 
 #backLista{
     background-color:  chocolate;
-    width: min-content;
+    width: max-content;
+}
+
+.ListaWiki{
+    background-color: aliceblue;
+    border-style: double;
+}
+
+#border{
+    padding-right: 15%;
+    padding-left: 10%;
 }

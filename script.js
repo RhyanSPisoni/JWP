@@ -57,7 +57,7 @@ obj.forEach(e => {
     document.getElementById('filme').appendChild(sinopse);
     sinopse.innerHTML += '- ' + e.Sinopse
 
-    fetch('https://observatoriodocinema.uol.com.br/wp-content/uploads/2021/11/eternos-capa-2.jpg')
+    fetch(e.Imagens)
     .then( data => {        
         return data.blob();
     }).then( res => {
