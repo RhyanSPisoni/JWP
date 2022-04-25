@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const path = require("path")
+
+app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', async (req, res, next) => {
     try {
@@ -14,6 +17,9 @@ app.get('/', async (req, res, next) => {
     }
 })
 
-app.get('/')
+app.get('/filmes', async (req, res, next) => {
+
+
+})
 
 module.exports = app
