@@ -1,8 +1,19 @@
 const express = require('express');
 const app = express();
 
-const routeVM = require('./router/consulta.js');
+app.get('/', async (req, res, next) => {
+    try {
+        var rest = {
+            message: "Hello World",
+            status: res.status(200).statusCode
+        }
+        res.send(rest)
 
-app.use('/', routeVM);
+    } catch (error) {
+        return res.status(404).send({ message: error.message });
+    }
+})
+
+app.get('/')
 
 module.exports = app
