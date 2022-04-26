@@ -43,8 +43,6 @@ fetch("https://akabab.github.io/superhero-api/api/all.json")
         return data.json()
             .then(res => {
                 res.forEach(e => {
-
-
                     fetch(e.images.xs)
                         .then(data => {
                             return data.blob();
