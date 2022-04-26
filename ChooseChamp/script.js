@@ -115,12 +115,12 @@ function postCampeao() {
         erro.textContent = ''
 
         fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(time),
-                headers: {
-                    'content-type': 'application/json'
-                }
-            })
+            method: 'POST',
+            body: JSON.stringify(time),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
             .then(requisicao => {
                 if (requisicao.status == 200) {
                     getEquipeLista()
@@ -133,8 +133,8 @@ const listaEquipeHTML = document.querySelector("#listaEquipe")
 
 function getEquipeLista() {
     let requisicao = fetch(url)
-    requisicao.then(function(resposta) {
-        resposta.json().then(function(vetorEquipes) {
+    requisicao.then(function (resposta) {
+        resposta.json().then(function (vetorEquipes) {
             equipes = vetorEquipes
             atualizarLista(equipes)
         })
@@ -150,7 +150,7 @@ function imprimirEquipe(equipe) {
     botaoDeletar.type = "button"
     botaoDeletar.value = "Deletar"
 
-    botaoDeletar.onclick = function() {
+    botaoDeletar.onclick = function () {
         //Lança método para deletação
         DeleteEquipe(equipe.nome);
     }
@@ -159,7 +159,7 @@ function imprimirEquipe(equipe) {
     botaoEditar.type = "button"
     botaoEditar.value = "Editar"
 
-    botaoEditar.addEventListener('click', function() {
+    botaoEditar.addEventListener('click', function () {
         //Lança método para edição
 
         //Pegar posição no vetor
