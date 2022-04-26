@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <div>
+            <label>Nome de Personsagem:</label>
+            <input type="nome" id="nome" onkeypress="ValidaNome()" />
+            <footer id="nomef"></footer>
+        </div>
+        <div>
+            <label>Cidade Natal</label>
+            <input type="text" id="cidade" onkeypress="ValidaCidade()" />
+            <footer id="cidadef"></footer>
+        </div>
+        <div>
+            <label>Classe(Guerreiro, Arqueiro, Mago)</label>
+            <input type="text" id="classe" onkeypress="ValidaClasse()" />
+            <footer id="classef"></footer>
+        </div>
+        <div>
+            <label>Raça(Humano, Deus, Planeta)</label>
+            <input type="text" id="race" onkeypress="ValidaRace()" />
+            <footer id="racef"></footer>
+        </div>
+        <div>
+            <label>Armas/Poderes(Martelo, Armadura, Magia)</label>
+            <input type="text" id="arma" onkeypress="ValidaArmas()" />
+            <footer id="armasf"></footer>
+        </div>
+    </form>
+    <div>
+        <button value="Salvar" onclick="Salvar()">Salvar Lista</button>
+    </div>
+    <div>
+        <button value="Salvar" onclick="MostrarLista()">Mostrar Lista - Console</button>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
