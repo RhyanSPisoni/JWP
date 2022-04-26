@@ -40,21 +40,24 @@ obj.forEach(e => {
 
 fetch("https://akabab.github.io/superhero-api/api/all.json")
     .then(data => {
-        return data.t
+        return data.json()
             .then(res => {
                 res.forEach(e => {
 
-                    let nome = document.createElement('h5');
-                    document.getElementById('listapersonagensfilmes').appendChild(nome);
-                    nome.innerHTML += e.nome;
 
-                    fetch(e.img)
+                    fetch(e.images.xs)
                         .then(data => {
                             return data.blob();
                         }).then(res => {
-                            const imgURL = URL.createObjectURL(res)
-                            const img = `<img src="${imgURL}"/>`;
-                            document.querySelector('#listapersonagensimgfilmes').innerHTML = img;
+
+                            let nome = document.createElement('h5');
+                            document.getElementById('filmeperonsagem').appendChild(nome);
+                            nome.innerHTML += e.name;
+
+                            // let img = `<img src="${imgURL}"/>`;
+                            let img = new Image(50, 50);
+                            img.src = res
+                            document.getElementById('filmeperonsagemimagem').appendChild(img);
                         })
 
                 })
