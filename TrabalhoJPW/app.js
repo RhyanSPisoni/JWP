@@ -5,7 +5,6 @@ const app = express();
 const path = require("path")
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const { randomInt } = require('crypto');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -27,11 +26,29 @@ app.get('/game', async (req, res, next) => {
         data.forEach(e => {
             listaid.push(e.id)
         });
+
         const numeroplayer1 = Math.floor(Math.random() * listaid.length);
         const numeroplayer2 = Math.floor(Math.random() * listaid.length);
+        const player1 = data[numeroplayer1];
+        const player2 = data[numeroplayer2];
 
-        var player1 = data.indexOf(numeroplayer1)
-        console.log(player1)
+        const ply1 = player1.powerstats.intelligence + player1.powerstats.strength + player1.powerstats.speed + player1.powerstats.durability + player1.powerstats.power + player1.powerstats.combat;
+        const ply2 = player2.powerstats.intelligence + player2.powerstats.strength + player2.powerstats.speed + player2.powerstats.durability + player2.powerstats.power + player2.powerstats.combat;
+        var vencedor;
+
+        if (ply1 > ply2)
+            vencedor = {
+                nome: player1.name,
+                pontos: ply1
+            }
+        else
+            vencedor = {
+                nome: player2.name,
+                pontos: ply2
+            }
+
+        res.send({ body: vencedor })
+
 
     } catch (error) {
         res.send({ error: error.message })
