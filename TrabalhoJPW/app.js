@@ -12,28 +12,32 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', async (req, res, next) => {
-    try {
-        var rest = {
-            message: "Hello World",
-            status: res.status(200).statusCode
-        }
-        res.send(rest)
 
-    } catch (error) {
-        return res.status(404).send({ message: error.message });
-    }
 })
 
 app.post('/login', async (req, res, next) => {
 
-    console.log(req.body.mail)
-    console.log(req.body.senha)
-
-    t = {
-        teste: "olá",
-        ddsteste: "odsadsaá"
+    var content = {
+        success: true,
+        redirect: ''
     }
-    return res.send({ body: t })
+
+    var index = req.body.mail.indexOf('@');
+    var sufix = req.body.mail.substring(index)
+
+    if (sufix == "@unesc.net") {
+
+        content.redirect = "criacaopersonagem/criacao_personagem.html"
+
+        return res.send({ body: content })
+    }
+    else {
+        content.success = false;
+        return res.send({ body: content })
+    }
+
 })
+
+
 
 module.exports = app

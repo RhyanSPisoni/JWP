@@ -5,22 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;">
+
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <title>Login JPW</title>
 </head>
-<button>
-    <a href="./criacaopersonagem/criacao_personagem.html">Criação de Personsagem</a>
-</button>
 
 <body>
-    <form>
-        <label>E-mail</label>
-        <input id="mail">
-        <label>Senha</label>
-        <input id="senha">
-    </form>
-    <button onclick="OnVerify()">Confirmar</button>
+    <div>
+        <form>
+            <label>E-mail</label>
+            <input id="imail">
+            <footer id="mailV"></footer>
+            <label>Senha</label>
+            <input id="isenha">
+            <footer id="senhaV"></footer>
+        </form>
+        <button id="btnVerify">Confirmar</button>
+    </div>
 </body>
+
 <script language="javascript" src="./script.js"></script>
 
 </html>

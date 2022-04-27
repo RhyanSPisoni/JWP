@@ -1,6 +1,6 @@
 var ListaPerson = []
 function Salvar() {
-        
+
     let pers = {
         nome: document.getElementById('nome').value,
         cidade: document.getElementById('cidade').value,
