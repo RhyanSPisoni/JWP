@@ -1,6 +1,7 @@
 var ListaPerson = []
 function Salvar() {
-
+    
+    
     let pers = {
         nome: document.getElementById('nome').value,
         cidade: document.getElementById('cidade').value,
@@ -9,6 +10,33 @@ function Salvar() {
         armas: document.getElementById('arma').value
     }
     ListaPerson.push(pers);
+    
+    document.getElementById('nome').value = null;
+    document.getElementById('cidade').value = null;
+    document.getElementById('classe').value = null;
+    document.getElementById('race').value = null;
+    document.getElementById('arma').value = null;
+}
+
+function DownloadLista() {
+    var filename = "teste.json"
+    var dataObjToWrite = JSON.stringify(ListaPerson);
+
+    const blob = new Blob([JSON.stringify(dataObjToWrite)], { type: "text/json" });
+    const link = document.createElement("a");
+
+    link.download = filename;
+    link.href = window.URL.createObjectURL(blob);
+    link.dataset.downloadurl = ["text/json", link.download, link.href].join(":");
+
+    const evt = new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+    });
+
+    link.dispatchEvent(evt);
+    link.remove()
 }
 
 function MostrarLista() {

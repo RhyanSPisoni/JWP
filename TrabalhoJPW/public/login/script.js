@@ -75,5 +75,7 @@ function OnVerify(res) {
         })
     }
 
+    if (res == false)
+        document.getElementById('infoMail').textContent = 'E-mail informado não está no domínio indicado!';
 }
 
