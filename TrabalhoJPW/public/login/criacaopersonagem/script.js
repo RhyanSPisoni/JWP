@@ -1,7 +1,7 @@
 var ListaPerson = []
 function Salvar() {
-    
-    
+
+
     let pers = {
         nome: document.getElementById('nome').value,
         cidade: document.getElementById('cidade').value,
@@ -10,7 +10,7 @@ function Salvar() {
         armas: document.getElementById('arma').value
     }
     ListaPerson.push(pers);
-    
+
     document.getElementById('nome').value = null;
     document.getElementById('cidade').value = null;
     document.getElementById('classe').value = null;
