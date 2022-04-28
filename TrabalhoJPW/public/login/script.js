@@ -48,14 +48,11 @@ function btnValidaText() {
 
 function OnVerify(res) {
 
-    console.log(res)
-
     if (res = true) {
         let login = {
             mail: document.getElementById("imail").value,
             senha: document.getElementById('isenha').value
         }
-        // console.log(login)
 
         fetch("http://localhost:5200/login", {
             method: 'POST',
@@ -66,8 +63,6 @@ function OnVerify(res) {
         }).then(res => {
             return res.json();
         }).then(res => {
-
-            console.log(res.body)
 
             if (res.body.success == true) {
                 window.location.assign(res.body.redirect);

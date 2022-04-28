@@ -41,7 +41,6 @@ function DownloadLista() {
 
 function MostrarLista() {
     lista = JSON.stringify(ListaPerson);
-    console.log(lista);
 }
 
 function ValidaNome() {

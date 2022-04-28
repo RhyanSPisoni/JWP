@@ -3,7 +3,7 @@ var ListChoosen = {};
 document.getElementById("btnChoose").addEventListener("click", onChooseRandom);
 document.getElementById("btnVenc").addEventListener("click", Winner);
 
-function onChooseRandom(){
+function onChooseRandom() {
     fetch("http://localhost:5200/game/choose", {
         method: 'GET',
         body: null,
@@ -13,12 +13,33 @@ function onChooseRandom(){
     }).then(res => {
         return res.json();
     }).then(res => {
-        
-        ListChoosen = []
-        
-        ListChoosen.push(res)
 
-        
+        ListChoosen = []
+
+        ListChoosen = [
+            player1 = {
+                id: res.body.player1.id,
+                nome: res.body.player1.name,
+                int: res.body.player1.powerstats.intelligence,
+                str: res.body.player1.powerstats.strength,
+                speed: res.body.player1.powerstats.speed,
+                durability: res.body.player1.powerstats.durability,
+                power: res.body.player1.powerstats.power,
+                combat: res.body.player1.powerstats.combat,
+                img: res.body.player1.images.md
+            },
+            player2 = {
+                id: res.body.player2.id,
+                nome: res.body.player2.name,
+                int: res.body.player2.powerstats.intelligence,
+                str: res.body.player2.powerstats.strength,
+                speed: res.body.player2.powerstats.speed,
+                durability: res.body.player2.powerstats.durability,
+                power: res.body.player2.powerstats.power,
+                combat: res.body.player2.powerstats.combat,
+                img: res.body.player2.images.md
+            }
+        ]
 
         fetch(res.body.player1.images.md)
             .then(data => {
@@ -61,26 +82,26 @@ function onChooseRandom(){
 function Winner() {
     fetch("http://localhost:5200/game/winner", {
         method: "POST",
-        body: JSON.stringify(ListChoosen[0]),
+        body: JSON.stringify(ListChoosen),
         headers: {
             'content-type': "application/json"
         }
     }).then(res => {
         return res.json();
-    }).then(rest => {
+    }).then(res => {
 
-        console.log(ListChoosen[0])
-        // fetch(res.body.img)
-        //     .then(data => {
-        //         return data.blob();
-        //     }).then(res => {
-        //         const imgURL = URL.createObjectURL(res)
-        //         document.getElementById("imgWinner").src = imgURL
-        //     })
+        fetch(res.body.img)
+            .then(data => {
+                return data.blob();
+            }).then(res => {
+                const imgURL = URL.createObjectURL(res)
+                document.getElementById("imgWinner").src = imgURL
+            })
 
-        // document.getElementById("vencId").textContent = `Vencedor é: ${res.body.id}`
-        // document.getElementById("Winner").textContent = `Vencedor é: ${res.body.nome}`
-        // document.getElementById("Winner").textContent = `Vencedor é: ${res.body.pontos}`
+        document.getElementById("vencId").textContent = `Competidor n°${res.body.id}`
+        document.getElementById("vencNome").textContent = `Nome: ${res.body.nome}`
+        document.getElementById("vencPontos").textContent = `Pontos: ${res.body.pontos}`
+
 
     })
 }

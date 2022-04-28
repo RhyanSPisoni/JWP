@@ -48,46 +48,43 @@ app.get('/game/choose', async (req, res, next) => {
 
 app.post('/game/winner', async (req, res, next) => {
     try {
-        
-        console.log(req.body.powerstats)
 
         const ply1 = await
-            req.body.player1.powerstats.intelligence +
-            req.body.player1.powerstats.strength +
-            req.body.player1.powerstats.speed +
-            req.body.player1.powerstats.durability +
-            req.body.player1.powerstats.power +
-            req.body.player1.powerstats.combat;
+            req.body[0].int +
+            req.body[0].str +
+            req.body[0].speed +
+            req.body[0].durability +
+            req.body[0].power +
+            req.body[0].combat;
+
 
         const ply2 = await
-            req.body.player2.powerstats.intelligence +
-            req.body.player2.powerstats.strength +
-            req.body.player2.powerstats.speed +
-            req.body.player2.powerstats.durability +
-            req.body.player2.powerstats.power +
-            req.body.player2.powerstats.combat;
+            req.body[1].int +
+            req.body[1].str +
+            req.body[1].speed +
+            req.body[1].durability +
+            req.body[1].power +
+            req.body[1].combat;
 
-        console.log("S")
         var vencedor;
 
         if (ply1 > ply2)
             vencedor = {
-                id: player1.id,
-                nome: player1.name,
+                id: req.body[0].id,
+                nome: req.body[0].nome,
                 pontos: ply1,
-                img: player1.images.md
+                img: req.body[0].img
             }
         else
             vencedor = {
-                id: player2.id,
-                nome: player2.name,
-                pontos: ply2,
-                img: player2.images.md
+                id: req.body[1].id,
+                nome: req.body[1].nome,
+                pontos: ply1,
+                img: req.body[1].img
             }
 
-        console.log(vencedor)
 
-        // res.send({ body: vencedor })
+        res.send({ body: vencedor })
 
 
     } catch (error) {

@@ -54,7 +54,7 @@ fetch("https://akabab.github.io/superhero-api/api/all.json")
                     div.id = `img${cont}`;
                     document.getElementById('filmeperonsagem').appendChild(div);
 
-                    fetch(e.images.md)
+                    fetch(e.images.sm)
                         .then(data => {
                             return data.blob();
                         }).then(res => {

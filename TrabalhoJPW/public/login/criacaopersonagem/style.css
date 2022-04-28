@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: peru;
+    height: 100vh;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    color: #434343;
+    align-items: center;
+}
+
+
+#wikicrono {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    /* max-height: 256px; */
+    margin-left: 32px;
+}
+
+body {
+    background: peru;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    border-radius: 32px;
+    background-color: chocolate;
+    border: 0;
+    cursor: pointer;
+    font-size: 80%;
+    text-rendering: auto;
+    /* font-weight: 500; */
+}
+
+a {
+    color: white;
+}

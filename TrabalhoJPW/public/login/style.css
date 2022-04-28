@@ -6,22 +6,19 @@ body>div.ico {
     justify-content: center;
     color: #434343;
     align-items: center;
-    
+
 }
 
-.iconimg {
-    width: 64px;
-    height: 64px;
-    display: flex;
-}
-
-form{
-    text-align: center;
+main {
     display: flex;
     flex-direction: column;
-}
-img {
     align-items: center;
-    display: flex;
-    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-left: 32px;
+}
+
+button {
+    margin-top: 10px;
 }

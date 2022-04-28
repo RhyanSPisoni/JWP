@@ -84,10 +84,6 @@ var filmes = [
     },
 ]
 
-console.log(filmes.sort(function (x, y) {
-    return x.data - y.data
-}))
-
 filmes.sort(function (x, y) {
     return x.data - y.data
 }).forEach(e => {
