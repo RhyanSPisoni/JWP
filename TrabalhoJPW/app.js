@@ -48,24 +48,26 @@ app.get('/game/choose', async (req, res, next) => {
 
 app.post('/game/winner', async (req, res, next) => {
     try {
-        console.log(req)
+        
+        console.log(req.body.powerstats)
 
-        const ply1 =
-            req.player1.powerstats.intelligence +
-            req.player1.powerstats.strength +
-            req.player1.powerstats.speed +
-            req.player1.powerstats.durability +
-            req.player1.powerstats.power +
-            req.player1.powerstats.combat;
+        const ply1 = await
+            req.body.player1.powerstats.intelligence +
+            req.body.player1.powerstats.strength +
+            req.body.player1.powerstats.speed +
+            req.body.player1.powerstats.durability +
+            req.body.player1.powerstats.power +
+            req.body.player1.powerstats.combat;
 
-        const ply2 =
-            req.player2.powerstats.intelligence +
-            req.player2.powerstats.strength +
-            req.player2.powerstats.speed +
-            req.player2.powerstats.durability +
-            req.player2.powerstats.power +
-            req.player2.powerstats.combat;
+        const ply2 = await
+            req.body.player2.powerstats.intelligence +
+            req.body.player2.powerstats.strength +
+            req.body.player2.powerstats.speed +
+            req.body.player2.powerstats.durability +
+            req.body.player2.powerstats.power +
+            req.body.player2.powerstats.combat;
 
+        console.log("S")
         var vencedor;
 
         if (ply1 > ply2)
@@ -80,10 +82,12 @@ app.post('/game/winner', async (req, res, next) => {
                 id: player2.id,
                 nome: player2.name,
                 pontos: ply2,
-                img: player1.images.md
+                img: player2.images.md
             }
 
-        res.send({ body: vencedor })
+        console.log(vencedor)
+
+        // res.send({ body: vencedor })
 
 
     } catch (error) {

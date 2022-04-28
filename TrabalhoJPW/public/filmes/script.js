@@ -27,37 +27,44 @@ obj.forEach(e => {
         document.getElementById('filmes').appendChild(nome);
         nome.innerHTML += e.nome;
 
-        fetch(e.img)
-            .then(data => {
-                return data.blob();
-            }).then(res => {
-                const imgURL = URL.createObjectURL(res)
-                const img = `<img src="${imgURL}"/>`;
-                document.querySelector('#listapersonagensimgfilmes').innerHTML = img;
-            })
+        // fetch(e.img)
+        //     .then(data => {
+        //         return data.blob();
+        //     }).then(res => {
+        //         const imgURL = URL.createObjectURL(res)
+        //         const img = `<img src="${imgURL}"/>`;
+        //         document.querySelector('#listapersonagensimgfilmes').innerHTML = img;
+        //     })
     })
 });
+
 
 fetch("https://akabab.github.io/superhero-api/api/all.json")
     .then(data => {
         return data.json()
             .then(res => {
+                var cont = 0;
                 res.forEach(e => {
-                    fetch(e.images.xs)
+
+                    let nome = document.createElement('h5');
+                    document.getElementById('filmeperonsagem').appendChild(nome);
+                    nome.innerHTML += e.name;
+
+
+                    //Olhem aqui
+                    var div = document.createElement('div');
+                    div.id = `img${cont}`;
+                    document.getElementById('filmeperonsagem').appendChild(div);
+
+                    fetch(e.images.md)
                         .then(data => {
                             return data.blob();
                         }).then(res => {
-
-                            let nome = document.createElement('h5');
-                            document.getElementById('filmeperonsagem').appendChild(nome);
-                            nome.innerHTML += e.name;
-
-                            // let img = `<img src="${imgURL}"/>`;
-                            let img = new Image(50, 50);
-                            img.src = res
-                            document.getElementById('filmeperonsagemimagem').appendChild(img);
+                            const imgURL = URL.createObjectURL(res)
+                            const img = `<img src="${imgURL}"/>`;
+                            div.innerHTML = img;
                         })
-
+                    cont = cont + 1;
                 })
             })
     })

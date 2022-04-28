@@ -1,8 +1,9 @@
-var ListChoosen = [];
+var ListChoosen = {};
 
 document.getElementById("btnChoose").addEventListener("click", onChooseRandom);
+document.getElementById("btnVenc").addEventListener("click", Winner);
 
-function onChooseRandom() {
+function onChooseRandom(){
     fetch("http://localhost:5200/game/choose", {
         method: 'GET',
         body: null,
@@ -12,8 +13,12 @@ function onChooseRandom() {
     }).then(res => {
         return res.json();
     }).then(res => {
-
+        
+        ListChoosen = []
+        
         ListChoosen.push(res)
+
+        
 
         fetch(res.body.player1.images.md)
             .then(data => {
@@ -56,20 +61,26 @@ function onChooseRandom() {
 function Winner() {
     fetch("http://localhost:5200/game/winner", {
         method: "POST",
-        body: ListChoosen,
+        body: JSON.stringify(ListChoosen[0]),
         headers: {
             'content-type': "application/json"
         }
-    }).then(res => { return res.json() }).then(res => {
+    }).then(res => {
+        return res.json();
+    }).then(rest => {
 
-        fetch(res.body.player1.images.md)
-            .then(data => {
-                return data.blob();
-            }).then(res => {
-                const imgURL = URL.createObjectURL(res)
-                document.getElementById("imgWinner").src = imgURL
-            })
-        document.getElementById("Winner").textContent = `Vencedor é: ${res}`
+        console.log(ListChoosen[0])
+        // fetch(res.body.img)
+        //     .then(data => {
+        //         return data.blob();
+        //     }).then(res => {
+        //         const imgURL = URL.createObjectURL(res)
+        //         document.getElementById("imgWinner").src = imgURL
+        //     })
+
+        // document.getElementById("vencId").textContent = `Vencedor é: ${res.body.id}`
+        // document.getElementById("Winner").textContent = `Vencedor é: ${res.body.nome}`
+        // document.getElementById("Winner").textContent = `Vencedor é: ${res.body.pontos}`
 
     })
 }
