@@ -49,7 +49,7 @@ app.get('/game/choose', async (req, res, next) => {
 app.post('/game/winner', async (req, res, next) => {
     try {
         console.log(req)
-        
+
         const ply1 =
             req.player1.powerstats.intelligence +
             req.player1.powerstats.strength +
@@ -70,13 +70,17 @@ app.post('/game/winner', async (req, res, next) => {
 
         if (ply1 > ply2)
             vencedor = {
+                id: player1.id,
                 nome: player1.name,
-                pontos: ply1
+                pontos: ply1,
+                img: player1.images.md
             }
         else
             vencedor = {
+                id: player2.id,
                 nome: player2.name,
-                pontos: ply2
+                pontos: ply2,
+                img: player1.images.md
             }
 
         res.send({ body: vencedor })

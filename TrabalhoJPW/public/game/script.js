@@ -67,10 +67,9 @@ function Winner() {
                 return data.blob();
             }).then(res => {
                 const imgURL = URL.createObjectURL(res)
-                document.getElementById("img").src = imgURL
-                
-                document.getElementById("Winner").textContent = `Vencedor é: ${res}`
+                document.getElementById("imgWinner").src = imgURL
             })
-            
+        document.getElementById("Winner").textContent = `Vencedor é: ${res}`
+
     })
 }
