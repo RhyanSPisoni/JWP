@@ -91,11 +91,7 @@ console.log(filmes.sort(function (x, y) {
 filmes.sort(function (x, y) {
     return x.data - y.data
 }).forEach(e => {
-    let nomeFilme = document.createElement('tr');
+    let nomeFilme = document.createElement('ul');
     document.getElementById('wikicrono').appendChild(nomeFilme);
     nomeFilme.innerHTML += e.nome;
 });
-
-//Login
-
-//Game

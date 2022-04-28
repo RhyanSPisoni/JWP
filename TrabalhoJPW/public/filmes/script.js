@@ -50,8 +50,6 @@ fetch("https://akabab.github.io/superhero-api/api/all.json")
                     document.getElementById('filmeperonsagem').appendChild(nome);
                     nome.innerHTML += e.name;
 
-
-                    //Olhem aqui
                     var div = document.createElement('div');
                     div.id = `img${cont}`;
                     document.getElementById('filmeperonsagem').appendChild(div);

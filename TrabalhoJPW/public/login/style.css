@@ -1,0 +1,27 @@
+body>div.ico {
+    background-color: peru;
+    height: 100vh;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    color: #434343;
+    align-items: center;
+    
+}
+
+.iconimg {
+    width: 64px;
+    height: 64px;
+    display: flex;
+}
+
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+img {
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
