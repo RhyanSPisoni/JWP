@@ -17,7 +17,7 @@ app.get('/', async (req, res, next) => {
 
 })
 
-app.get('/game', async (req, res, next) => {
+app.get('/game/choose', async (req, res, next) => {
     try {
         const { data } = await api.get('all.json')
 
@@ -29,11 +29,43 @@ app.get('/game', async (req, res, next) => {
 
         const numeroplayer1 = Math.floor(Math.random() * listaid.length);
         const numeroplayer2 = Math.floor(Math.random() * listaid.length);
+
         const player1 = data[numeroplayer1];
         const player2 = data[numeroplayer2];
 
-        const ply1 = player1.powerstats.intelligence + player1.powerstats.strength + player1.powerstats.speed + player1.powerstats.durability + player1.powerstats.power + player1.powerstats.combat;
-        const ply2 = player2.powerstats.intelligence + player2.powerstats.strength + player2.powerstats.speed + player2.powerstats.durability + player2.powerstats.power + player2.powerstats.combat;
+        var choosens = {
+            player1: player1,
+            player2: player2
+        }
+
+        res.send({ body: choosens })
+
+
+    } catch (error) {
+        res.send({ error: error.message })
+    }
+})
+
+app.post('/game/winner', async (req, res, next) => {
+    try {
+        console.log(req)
+        
+        const ply1 =
+            req.player1.powerstats.intelligence +
+            req.player1.powerstats.strength +
+            req.player1.powerstats.speed +
+            req.player1.powerstats.durability +
+            req.player1.powerstats.power +
+            req.player1.powerstats.combat;
+
+        const ply2 =
+            req.player2.powerstats.intelligence +
+            req.player2.powerstats.strength +
+            req.player2.powerstats.speed +
+            req.player2.powerstats.durability +
+            req.player2.powerstats.power +
+            req.player2.powerstats.combat;
+
         var vencedor;
 
         if (ply1 > ply2)
