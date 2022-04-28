@@ -1,0 +1,48 @@
+html, body{
+    padding: 0;;
+    margin: 0;
+    background-color: peru;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+header{
+    text-justify: auto;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 40%;
+    padding-left: 40%;
+    padding: auto;
+    font-size: xx-large;
+    text-decoration-line: underline;
+}
+
+h1{
+    color: brown;
+}
+
+#listaFilmes{
+    color: gainsboro;
+    font-size: larger;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+#backInfoFilme{
+    padding-left: 2%;
+    padding-right: 1%;
+}
+
+#backLista{
+    background-color:  chocolate;
+    width: max-content;
+}
+
+.ListaWiki{
+    background-color: aliceblue;
+    border-style: double;
+}
+
+#border{
+    padding-right: 15%;
+    padding-left: 10%;
+}
