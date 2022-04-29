@@ -48,7 +48,6 @@ app.get('/game/choose', async (req, res, next) => {
 
 app.post('/game/winner', async (req, res, next) => {
     try {
-
         const ply1 = await
             req.body[0].int +
             req.body[0].str +
@@ -114,7 +113,5 @@ app.post('/login', async (req, res, next) => {
     }
 
 })
-
-
 
 module.exports = app
